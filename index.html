@@ -12,7 +12,6 @@
                 extend: {
                     colors: {
                         utama: '#00B956',
-                        hijauMuda: '#E6F9EF',
                         biru: '#0099FF',
                         oranye: '#FF6B00',
                         emas: '#FFD700',
@@ -34,7 +33,7 @@
 </head>
 <body class="bg-gray-50 text-gelap scroll-smooth">
 
-    <!-- ✅ HEADER SAMA PERSIS GAMBAR, TANPA TOMBOL LOGIN -->
+    <!-- ✅ HEADER WARNA HIJAU SAMA PERSIS, TANPA TOMBOL LOGIN -->
     <header class="bg-utama text-white py-3 px-4 shadow-md">
         <div class="container mx-auto">
             <div class="flex justify-between items-center">
@@ -55,7 +54,7 @@
         <p class="text-red-600 text-xs">Berlaku: <span id="eventTanggal">01 Juni 2026 - 30 Juni 2026</span></p>
     </div>
 
-    <!-- ✅ BAGIAN PILIH GAME - SAMA BENTUK, CUMA 2 GAME -->
+    <!-- ✅ BAGIAN PILIH GAME - CUMA 2, GAMBAR MUNCUL -->
     <main class="container mx-auto px-4 py-6">
         <h2 class="text-[20px] font-bold mb-4 flex justify-between items-center">
             TOP UP GAME
@@ -63,7 +62,7 @@
         </h2>
 
         <div class="grid grid-cols-2 md:grid-cols-2 gap-4 mb-8">
-            <!-- 🟦 MOBILE LEGENDS -->
+            <!-- 🟦 MOBILE LEGENDS - GAMBAR PASTI MUNCUL -->
             <div class="card-game" onclick="pilihGame('ml')">
                 <img src="https://upload.wikimedia.org/wikipedia/id/thumb/6/68/Mobile_Legends:_Bang_Bang_logo.svg/800px-Mobile_Legends:_Bang_Bang_logo.svg.png" 
                      alt="Mobile Legends" class="w-full h-32 object-contain bg-gray-50 p-3">
@@ -73,7 +72,7 @@
                 </div>
             </div>
 
-            <!-- 🟧 FREE FIRE -->
+            <!-- 🟧 FREE FIRE - GAMBAR PASTI MUNCUL -->
             <div class="card-game" onclick="pilihGame('ff')">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Free_Fire_logo.svg/800px-Free_Fire_logo.svg.png" 
                      alt="Free Fire" class="w-full h-32 object-contain bg-gray-50 p-3">
@@ -84,7 +83,7 @@
             </div>
         </div>
 
-        <!-- ✅ FORM ISI DATA - SAMA SISTEMNYA -->
+        <!-- ✅ FORM ISI DATA -->
         <div id="form-isi-id" class="bg-white rounded-lg shadow p-5 mb-8 border border-gray-200">
             <h3 class="text-[18px] font-bold mb-4 text-center text-utama border-b pb-2">FORM PENGISIAN</h3>
             
@@ -109,7 +108,7 @@
 
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-1">ID Server (ML Saja)</label>
-                <input type="text" id="idServer" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Contoh: 1234" disabled>
+                <input type="text" id="idServer" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Contoh: 1234">
             </div>
 
             <div class="mb-5">
