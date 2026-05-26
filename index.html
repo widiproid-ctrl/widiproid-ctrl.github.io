@@ -12,12 +12,6 @@
                 extend: {
                     colors: {
                         utama: '#00B956',
-                        biru: '#0099FF',
-                        oranye: '#FF6B00',
-                        emas: '#FFD700',
-                        perak: '#C0C0C0',
-                        perunggu: '#CD7F32',
-                        gelap: '#1E293B'
                     },
                 }
             }
@@ -25,232 +19,41 @@
     </script>
     <style type="text/tailwindcss">
         @layer utilities {
-            .content-auto { content-visibility: auto; }
             .scroll-smooth { scroll-behavior: smooth; }
-            .card-game { @apply bg-white rounded-lg shadow hover:shadow-lg transition-all cursor-pointer overflow-hidden border border-gray-200; }
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gelap scroll-smooth">
+<body class="bg-gray-100 scroll-smooth">
 
-    <!-- ✅ HEADER WARNA HIJAU SAMA PERSIS, TANPA TOMBOL LOGIN -->
-    <header class="bg-utama text-white py-3 px-4 shadow-md">
+    <!-- HEADER -->
+    <header class="bg-utama text-white py-4 px-4 shadow-md">
         <div class="container mx-auto">
-            <div class="flex justify-between items-center">
-                <h1 class="text-[22px] font-bold flex items-center gap-2">
-                    <i class="fa fa-gamepad"></i> WIDI STORE
-                </h1>
-                <div class="flex items-center gap-2">
-                    <span class="bg-white text-utama font-bold px-2 py-1 rounded text-sm">ID</span>
-                </div>
-            </div>
+            <h1 class="text-[22px] font-bold text-center">WIDI STORE</h1>
             <p class="text-center text-white/90 text-sm mt-1">Top Up Game & Voucher Murah, Aman, Cepat</p>
+            <div class="mt-3">
+                <input type="text" placeholder="Cari game favoritmu..." class="w-full px-3 py-2 rounded-lg text-gray-800 text-sm">
+            </div>
         </div>
     </header>
 
-    <!-- ✅ FITUR EVENT -->
-    <div id="eventBox" class="bg-red-50 border-l-4 border-red-500 p-3 mx-4 mt-4 rounded-r-lg animate-pulse">
-        <h3 class="text-red-700 font-bold" id="eventNama">🔥 EVENT SPESIAL: DISKON 20% SEMUA GAME!</h3>
-        <p class="text-red-600 text-xs">Berlaku: <span id="eventTanggal">01 Juni 2026 - 30 Juni 2026</span></p>
-    </div>
-
-    <!-- ✅ BAGIAN PILIH GAME - CUMA 2, GAMBAR MUNCUL -->
-    <main class="container mx-auto px-4 py-6">
-        <h2 class="text-[20px] font-bold mb-4 flex justify-between items-center">
-            TOP UP GAME
-            <span class="text-utama text-sm font-normal">Hanya 2 Game Terpopuler</span>
-        </h2>
-
-        <div class="grid grid-cols-2 md:grid-cols-2 gap-4 mb-8">
-            <!-- 🟦 MOBILE LEGENDS - GAMBAR PASTI MUNCUL -->
-            <div class="card-game" onclick="pilihGame('ml')">
-                <img src="https://upload.wikimedia.org/wikipedia/id/thumb/6/68/Mobile_Legends:_Bang_Bang_logo.svg/800px-Mobile_Legends:_Bang_Bang_logo.svg.png" 
-                     alt="Mobile Legends" class="w-full h-32 object-contain bg-gray-50 p-3">
-                <div class="p-3 text-center">
-                    <h3 class="font-bold text-biru">Mobile Legends</h3>
-                    <p class="text-green-600 text-xs">Diamond MLBB</p>
-                </div>
+    <!-- HALAMAN UTAMA -->
+    <main class="container mx-auto px-4 py-6" id="halamanUtama">
+        <h2 class="text-lg font-bold mb-4">Pilih Game</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <!-- MOBILE LEGENDS -->
+            <div class="bg-white rounded-lg shadow p-3 cursor-pointer hover:shadow-lg transition" onclick="bukaHalaman('ml')">
+                <img src="https://upload.wikimedia.org/wikipedia/id/thumb/6/68/Mobile_Legends:_Bang_Bang_logo.svg/800px-Mobile_Legends:_Bang_Bang_logo.svg.png" class="w-full h-28 object-contain mb-2">
+                <h3 class="font-bold text-center text-blue-600">Mobile Legends</h3>
+                <p class="text-green-600 text-xs text-center">Diamond MLBB</p>
             </div>
-
-            <!-- 🟧 FREE FIRE - GAMBAR PASTI MUNCUL -->
-            <div class="card-game" onclick="pilihGame('ff')">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Free_Fire_logo.svg/800px-Free_Fire_logo.svg.png" 
-                     alt="Free Fire" class="w-full h-32 object-contain bg-gray-50 p-3">
-                <div class="p-3 text-center">
-                    <h3 class="font-bold text-oranye">Free Fire</h3>
-                    <p class="text-green-600 text-xs">Diamond FF</p>
-                </div>
+            <!-- FREE FIRE -->
+            <div class="bg-white rounded-lg shadow p-3 cursor-pointer hover:shadow-lg transition" onclick="bukaHalaman('ff')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Free_Fire_logo.svg/800px-Free_Fire_logo.svg.png" class="w-full h-28 object-contain mb-2">
+                <h3 class="font-bold text-center text-orange-500">Free Fire</h3>
+                <p class="text-green-600 text-xs text-center">Diamond FF</p>
             </div>
         </div>
-
-        <!-- ✅ FORM ISI DATA -->
-        <div id="form-isi-id" class="bg-white rounded-lg shadow p-5 mb-8 border border-gray-200">
-            <h3 class="text-[18px] font-bold mb-4 text-center text-utama border-b pb-2">FORM PENGISIAN</h3>
-            
-            <div class="mb-4">
-                <label class="block text-sm font-medium mb-1">Pilih Game</label>
-                <select id="gameSelect" class="w-full border border-gray-300 rounded p-2 text-sm">
-                    <option value="ml">Mobile Legends: Bang Bang</option>
-                    <option value="ff">Free Fire</option>
-                </select>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-                <div>
-                    <label class="block text-sm font-medium mb-1">Nama Pembeli</label>
-                    <input type="text" id="namaPembeli" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Masukkan Nama">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-1">User ID</label>
-                    <input type="text" id="idAkun" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Contoh: 12345678">
-                </div>
-            </div>
-
-            <div class="mb-4">
-                <label class="block text-sm font-medium mb-1">ID Server (ML Saja)</label>
-                <input type="text" id="idServer" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="Contoh: 1234">
-            </div>
-
-            <div class="mb-5">
-                <label class="block text-sm font-medium mb-1">Pilih Paket Diamond & Harga</label>
-                <select id="hargaSelect" class="w-full border border-gray-300 rounded p-2 text-sm">
-                    <optgroup label="--- HARGA MOBILE LEGENDS ---" id="hargaML">
-                        <option value="5|1500">💎 5 Diamond — Rp 1.500 | +5 Poin</option>
-                        <option value="12|3000">💎 12 Diamond — Rp 3.000 | +10 Poin</option>
-                        <option value="28|7000">💎 28 Diamond — Rp 7.000 | +25 Poin</option>
-                        <option value="56|14000">💎 56 Diamond — Rp 14.000 | +50 Poin</option>
-                        <option value="86|21000">💎 86 Diamond — Rp 21.000 | +75 Poin</option>
-                        <option value="172|42000">💎 172 Diamond — Rp 42.000 | +150 Poin</option>
-                    </optgroup>
-                    <optgroup label="--- HARGA FREE FIRE ---" id="hargaFF" class="hidden">
-                        <option value="5|1400">🔥 5 Diamond — Rp 1.400 | +5 Poin</option>
-                        <option value="10|2800">🔥 10 Diamond — Rp 2.800 | +10 Poin</option>
-                        <option value="25|6500">🔥 25 Diamond — Rp 6.500 | +25 Poin</option>
-                        <option value="50|13000">🔥 50 Diamond — Rp 13.000 | +50 Poin</option>
-                        <option value="100|26000">🔥 100 Diamond — Rp 26.000 | +100 Poin</option>
-                        <option value="140|35000">🔥 140 Diamond — Rp 35.000 | +140 Poin</option>
-                    </optgroup>
-                </select>
-                <p class="text-green-600 text-xs mt-1">💡 100 Poin = Tukar 10 Diamond Gratis!</p>
-            </div>
-
-            <button onclick="kirimWA()" class="w-full bg-green-600 text-white font-bold py-3 rounded text-sm hover:bg-green-700 transition">
-                <i class="fa fa-whatsapp"></i> PESAN SEKARANG
-            </button>
-        </div>
-
-        <!-- ✅ LEADERBOARD SELAMANYA -->
-        <div class="bg-white rounded-lg shadow p-5 mb-6 border border-gray-200">
-            <h2 class="text-center text-[18px] font-bold text-utama mb-3">🏆 LEADERBOARD TOP UP SELAMANYA 🏆</h2>
-            <p class="text-center text-red-600 text-xs mb-3">✨ Juara 1 Dapat +500 Poin Bonus! ✨</p>
-            <div class="overflow-x-auto">
-                <table class="w-full text-center text-sm">
-                    <thead class="bg-utama text-white">
-                        <tr>
-                            <th class="p-2 rounded-tl">Peringkat</th>
-                            <th class="p-2">Nama</th>
-                            <th class="p-2">Game</th>
-                            <th class="p-2">Total Belanja</th>
-                            <th class="p-2 rounded-tr">Poin</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabelLeaderboard">
-                        <tr><td colspan="5" class="p-3 text-gray-500">Belum ada riwayat</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- ✅ CS BISA DIKLIK -->
-        <a href="https://wa.me/6285656286654" target="_blank" class="block bg-yellow-50 border border-yellow-400 rounded-lg p-3 text-center hover:bg-yellow-100 transition">
-            <p class="text-yellow-800 text-sm">📞 Butuh Bantuan? Hubungi CS:</p>
-            <p class="font-bold text-yellow-900">085656286654 (Klik Langsung WA)</p>
-        </a>
     </main>
 
-    <footer class="bg-gelap text-white py-4 mt-6">
-        <div class="container mx-auto px-4 text-center text-xs">
-            <p>© 2026 Widi Store | Top Up ML & FF Resmi</p>
-        </div>
-    </footer>
-
-    <script>
-        // PENGATURAN EVENT
-        const PENGATURAN_EVENT = { nama: "🔥 EVENT HUT WIDI STORE: DISKON 20%!", tanggal: "01 - 30 Juni 2026" };
-        const HADIAH_JUARA_1 = 500;
-        document.getElementById('eventNama').innerText = PENGATURAN_EVENT.nama;
-        document.getElementById('eventTanggal').innerText = PENGATURAN_EVENT.tanggal;
-
-        // FUNGSI PILIH GAME
-        function pilihGame(game) {
-            document.getElementById('form-isi-id').scrollIntoView({behavior: 'smooth'});
-            document.getElementById('gameSelect').value = game;
-
-            if(game === 'ff'){
-                document.getElementById('hargaML').classList.add('hidden');
-                document.getElementById('hargaFF').classList.remove('hidden');
-                document.getElementById('idServer').value = '';
-                document.getElementById('idServer').disabled = true;
-                document.getElementById('idServer').placeholder = 'Tidak Perlu';
-            } else {
-                document.getElementById('hargaFF').classList.add('hidden');
-                document.getElementById('hargaML').classList.remove('hidden');
-                document.getElementById('idServer').disabled = false;
-                document.getElementById('idServer').placeholder = 'Contoh: 1234';
-            }
-            setTimeout(() => document.getElementById('namaPembeli').focus(), 300);
-        }
-
-        document.getElementById('gameSelect').addEventListener('change', function(){ pilihGame(this.value); });
-
-        // LEADERBOARD SELAMANYA
-        let riwayatTopUp = JSON.parse(localStorage.getItem('riwayatTopUpWidi')) || [];
-
-        function simpanKeLeaderboard(nama, game, harga, poin) {
-            riwayatTopUp.push({ nama, game: game=='ml'?'Mobile Legends':'Free Fire', harga:parseInt(harga), poin:parseInt(poin) });
-            riwayatTopUp.sort((a,b) => b.harga - a.harga);
-            if(riwayatTopUp.length>0) riwayatTopUp[0].poin += HADIAH_JUARA_1;
-            localStorage.setItem('riwayatTopUpWidi', JSON.stringify(riwayatTopUp));
-            tampilkanLeaderboard();
-        }
-
-        function tampilkanLeaderboard() {
-            const tbl = document.getElementById('tabelLeaderboard');
-            tbl.innerHTML = '';
-            if(riwayatTopUp.length===0) { tbl.innerHTML = `<tr><td colspan="5" class="p-3 text-gray-500">Belum ada riwayat</td></tr>`; return; }
-
-            riwayatTopUp.forEach((d,i)=>{
-                let no = i+1, ikon='', warna='';
-                if(no===1){ikon='👑';warna='text-emas font-bold';}
-                else if(no===2){ikon='🥈';warna='text-perak font-bold';}
-                else if(no===3){ikon='🥉';warna='text-perunggu font-bold';}
-
-                const baris = document.createElement('tr');
-                baris.className='border-b border-gray-200';
-                baris.innerHTML = `<td class="p-2 ${warna}">${ikon} ${no}</td><td class="p-2">${d.nama}</td><td class="p-2">${d.game}</td><td class="p-2">Rp ${d.harga.toLocaleString()}</td><td class="p-2">${d.poin}</td>`;
-                tbl.appendChild(baris);
-            });
-        }
-        tampilkanLeaderboard();
-
-        // KIRIM KE WA
-        function kirimWA(){
-            const game = document.getElementById('gameSelect').value;
-            const nama = document.getElementById('namaPembeli').value.trim();
-            const id = document.getElementById('idAkun').value.trim();
-            const server = document.getElementById('idServer').value;
-            const pilih = document.getElementById('hargaSelect').value.split('|');
-            const jum = pilih[0], hrg = pilih[1], poin = jum*10;
-
-            if(!nama||!id) return alert('Nama & ID Wajib Diisi!');
-
-            simpanKeLeaderboard(nama, game, hrg, poin);
-
-            const teks = `Halo Widi Store%0APesanan:%0ANama: ${nama}%0AGame: ${game=='ml'?'Mobile Legends':'Free Fire'}%0AID: ${id}%0A${game=='ml'?'Server: '+server+'%0A':''}Jumlah: ${jum} Diamond%0AHarga: Rp ${hrg}%0APoin: ${poin}`;
-            window.open(`https://wa.me/6285119876723?text=${teks}`, '_blank');
-
-            document.getElementById('namaPembeli').value=''; document.getElementById('idAkun').value=''; document.getElementById('idServer').value='';
-        }
-    </script>
-</body>
-</html>
+    <!-- HALAMAN PRODUK - TANPA FORM PENGISIAN, TAMPILAN SEPERTI CONTOH -->
+    <section
