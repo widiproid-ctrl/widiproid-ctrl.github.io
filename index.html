@@ -48,10 +48,10 @@
 
     <main class="container mx-auto px-4 py-8">
 
-        <!-- ✅ FITUR EVENT (KAMU BISA ATUR SENDIRI DI BAWAH) -->
+        <!-- ✅ FITUR EVENT (MUNCUL DI ATAS, KAMU BISA EDIT SENDIRI) -->
         <div id="eventBox" class="bg-red-50 border-2 border-red-500 rounded-xl p-4 mb-8 text-center animate-pulse">
-            <h3 class="text-red-700 font-bold text-xl" id="eventNama">🔥 EVENT SPESIAL: DISKON 10% SEMUA GAME!</h3>
-            <p class="text-red-600 text-sm">Berlaku: <span id="eventTanggal">01 Januari 2026 - 31 Desember 2026</span></p>
+            <h3 class="text-red-700 font-bold text-xl" id="eventNama">🔥 EVENT SPESIAL: DISKON 20% SEMUA GAME!</h3>
+            <p class="text-red-600 text-sm">Berlaku: <span id="eventTanggal">01 Juni 2026 - 30 Juni 2026</span></p>
         </div>
 
         <!-- JUDUL PILIH GAME -->
@@ -60,7 +60,7 @@
             <p class="text-gray-600">Klik gambar untuk mulai pesan otomatis</p>
         </div>
 
-        <!-- ✅ HANYA 2 GAME + GAMBAR YANG KAMU SUKA (PASTI MUNCUL) -->
+        <!-- ✅ HANYA 2 GAME + GAMBAR LOGO YANG KAMU SUKA -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
 
             <!-- 🟦 MOBILE LEGENDS -->
@@ -145,10 +145,10 @@
             </button>
         </div>
 
-        <!-- ✅ LEADERBOARD TOP UP (DATA TERSIMPAN SELAMANYA, TIDAK HILANG) -->
+        <!-- ✅ LEADERBOARD TOP UP SELAMANYA (MUNCUL DI BAWAH FORM) -->
         <div class="max-w-3xl mx-auto mt-12 bg-white rounded-xl shadow-lg p-6 border-2 border-utama">
             <h2 class="text-center text-[24px] font-bold text-utama mb-6">🏆 LEADERBOARD TOP UP SELAMANYA 🏆</h2>
-            <p class="text-center text-red-600 font-semibold mb-4">✨ PERINGKAT 1 DAPAT HADIAH +500 POIN BONUS! ✨</p>
+            <p class="text-center text-red-600 font-semibold mb-4">✨ PERINGKAT 1 OTOMATIS DAPAT HADIAH +500 POIN BONUS! ✨</p>
             <div class="overflow-x-auto">
                 <table class="w-full text-center">
                     <thead class="bg-utama text-white">
@@ -161,7 +161,6 @@
                         </tr>
                     </thead>
                     <tbody id="tabelLeaderboard">
-                        <!-- Data Muncul Otomatis Disini & Tersimpan Selamanya -->
                         <tr><td colspan="5" class="p-4 text-gray-500">Belum ada riwayat top up</td></tr>
                     </tbody>
                 </table>
@@ -184,17 +183,17 @@
 
     <script>
         // ==============================================
-        // BOS, KAMU BISA ATUR EVENT SENDIRI DI BAWAH INI:
+        // CARA ATUR EVENT SENDIRI: GANTI TULISAN DI SINI
         // ==============================================
         const PENGATURAN_EVENT = {
             nama: "🔥 EVENT HUT WIDI STORE: DISKON 20% SEMUA!", // Ganti nama event
-            tanggal: "01 Juni 2026 - 30 Juni 2026" // Ganti tanggal
+            tanggal: "01 Juni 2026 - 30 Juni 2026" // Ganti tanggal berlangsung
         };
 
-        // Hadiah Peringkat 1
-        const HADIAH_JUARA_1 = 500; // Poin Bonus Tambahan
+        // Hadiah Tambahan Juara 1
+        const HADIAH_JUARA_1 = 500; 
 
-        // Jalankan Pengaturan Event
+        // Tampilkan Event
         document.getElementById('eventNama').innerText = PENGATURAN_EVENT.nama;
         document.getElementById('eventTanggal').innerText = PENGATURAN_EVENT.tanggal;
 
@@ -227,29 +226,27 @@
         });
 
         // ==============================================
-        // LEADERBOARD TERSIMPAN SELAMANYA (LOCAL STORAGE)
+        // LEADERBOARD TERSIMPAN SELAMANYA
         // ==============================================
         let riwayatTopUp = JSON.parse(localStorage.getItem('riwayatTopUpWidi')) || [];
 
         function simpanKeLeaderboard(nama, game, harga, poin) {
-            // Tambah hadiah jika juara 1 nanti di urutan
             riwayatTopUp.push({
                 nama: nama,
                 game: game == 'ml' ? 'Mobile Legends' : 'Free Fire',
                 harga: parseInt(harga),
-                poin: parseInt(poin),
-                tanggal: new Date().toLocaleDateString('id-ID')
+                poin: parseInt(poin)
             });
 
-            // Urutkan dari yang paling banyak belanja
+            // Urutkan dari belanja terbesar
             riwayatTopUp.sort((a,b) => b.harga - a.harga);
 
-            // Berikan Hadiah Poin Tambahan untuk Juara 1
+            // Kasih Hadiah Poin Tambahan untuk Juara 1
             if(riwayatTopUp.length > 0){
                 riwayatTopUp[0].poin += HADIAH_JUARA_1;
             }
 
-            // Simpan ke Penyimpanan Browser (TIDAK HILANG SELAMANYA KECUALI DIHAPUS MANUAL)
+            // Simpan Data (TIDAK HILANG KECUALI DIHAPUS)
             localStorage.setItem('riwayatTopUpWidi', JSON.stringify(riwayatTopUp));
 
             tampilkanLeaderboard();
@@ -286,7 +283,6 @@
             });
         }
 
-        // Tampilkan saat halaman dibuka
         tampilkanLeaderboard();
 
         // ==============================================
@@ -300,20 +296,20 @@
             let pilihan = document.getElementById('hargaSelect').value.split('|');
             let jumlah = pilihan[0];
             let harga = pilihan[1];
-            let poin = jumlah * 10; // Rumus poin
+            let poin = jumlah * 10;
 
             if(!nama || !id){
                 alert('Nama dan ID Akun wajib diisi Bos!');
                 return;
             }
 
-            // Simpan data ke Leaderboard
+            // Simpan ke Leaderboard
             simpanKeLeaderboard(nama, game, harga, poin);
 
             // Teks Pesan WA
             let teks = `Halo Widi Store%0ASaya Mau Top Up%0A%0ANama: ${nama}%0AGame: ${game == 'ml' ? 'Mobile Legends' : 'Free Fire'}%0AID Akun: ${id}%0A${game == 'ml' ? 'ID Server: ' + server + '%0A' : ''}Jumlah: ${jumlah} Diamond%0AHarga: Rp ${harga}%0APoin Didapat: ${poin} Poin`;
             
-            // Nomor WA Utama: 6285119876723
+            // Nomor Pesanan Utama
             window.open(`https://wa.me/6285119876723?text=${teks}`, '_blank');
 
             // Reset Form
