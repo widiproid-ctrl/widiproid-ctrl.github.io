@@ -24,7 +24,8 @@
         @layer utilities {
             .content-auto { content-visibility: auto; }
             .scroll-smooth { scroll-behavior: smooth; }
-            .card-hover { @apply transition-all duration-300 hover:scale-[1.03] hover:shadow-xl cursor-pointer; }
+            .card-hover { @apply transition-all duration-300 hover:scale-[1.03] hover:shadow-xl cursor-pointer; border-2 border-transparent hover:border-utama; }
+            .border-info { @apply border-l-4 border-utama pl-4 py-2 my-3 bg-gray-50 rounded-r-lg; border-t border-r border-b border-gray-200; }
         }
     </style>
 </head>
@@ -45,63 +46,66 @@
     <main class="container mx-auto px-4 py-8">
 
         <!-- JUDUL -->
-        <div class="text-center mb-10">
+        <div class="text-center mb-10 border-b-2 border-gray-300 pb-4">
             <h2 class="text-[28px] font-bold text-gelap mb-2">PILIH GAME KAMU</h2>
-            <p class="text-gray-600">Klik gambar game untuk mulai pesan</p>
+            <p class="text-gray-600">Klik gambar untuk mulai pesan otomatis</p>
         </div>
 
-        <!-- DAFTAR GAME -->
+        <!-- DAFTAR GAME (HANYA ML & FF) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
 
-            <!-- 🟦 MOBILE LEGENDS -->
+            <!-- 🟦 MOBILE LEGENDS - GAMBAR MENARIK & TAJAM -->
             <div class="bg-white rounded-xl shadow p-5 card-hover" onclick="pilihGame('ml')">
-                <img src="https://upload.wikimedia.org/wikipedia/id/thumb/6/68/Mobile_Legends:_Bang_Bang_logo.svg/1200px-Mobile_Legends:_Bang_Bang_logo.svg.png" 
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Mobile_Legends_Bang_Bang_Logo.png" 
                      alt="Mobile Legends" class="w-full h-32 object-contain mb-3 p-2">
                 <h3 class="font-bold text-center text-xl text-ml">Mobile Legends</h3>
                 <p class="text-center text-green-600 font-semibold text-sm">Diamond Termurah</p>
-                <p class="text-center text-gray-600 text-xs mt-2">Beli Skin, Emote & Item Eksklusif</p>
+                <div class="border-info text-sm text-gray-700">
+                    <p>💎 Beli Skin, Emote & Item Eksklusif</p>
+                    <p>⚡ Proses Masuk Otomatis & Cepat</p>
+                </div>
             </div>
 
-            <!-- 🟧 FREE FIRE -->
+            <!-- 🟧 FREE FIRE - GAMBAR MENARIK & TAJAM -->
             <div class="bg-white rounded-xl shadow p-5 card-hover" onclick="pilihGame('ff')">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Free_Fire_logo.svg/1200px-Free_Fire_logo.svg.png" 
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Garena_Free_Fire_Logo_2021.svg" 
                      alt="Free Fire" class="w-full h-32 object-contain mb-3 p-2">
                 <h3 class="font-bold text-center text-xl text-ff">Free Fire</h3>
                 <p class="text-center text-green-600 font-semibold text-sm">Diamond Termurah</p>
-                <p class="text-center text-gray-600 text-xs mt-2">Bundle, Senjata & Elite Pass</p>
+                <div class="border-info text-sm text-gray-700">
+                    <p>🔥 Bundle, Senjata & Elite Pass</p>
+                    <p>⚡ Proses 1 - 3 Menit Langsung Masuk</p>
+                </div>
             </div>
 
         </div>
 
-        <!-- ✅ FORM ISI ID (LOKASI TUJUAN LANGSUNG PINDAH SINI) -->
-        <div id="form-isi-id" class="bg-white rounded-xl shadow-lg p-6 md:p-8 mt-12 max-w-xl mx-auto">
-            <h3 class="text-[22px] font-bold text-center mb-6 text-utama">FORM PENGISIAN DATA</h3>
+        <!-- FORM ISI ID DENGAN BORDER RAPI -->
+        <div id="form-isi-id" class="bg-white rounded-xl shadow-lg p-6 md:p-8 mt-12 max-w-xl mx-auto border-2 border-gray-200">
+            <h3 class="text-[22px] font-bold text-center mb-6 text-utama border-b-2 border-gray-200 pb-2">FORM PENGISIAN DATA</h3>
             
-            <!-- PILIH GAME (OTOMATIS TERISI KALAU KLIK GAMBAR) -->
             <div class="mb-5">
                 <label class="block font-medium mb-2">Pilih Game</label>
-                <select id="gameSelect" class="w-full border border-gray-300 rounded-lg p-3 text-lg">
+                <select id="gameSelect" class="w-full border-2 border-gray-300 rounded-lg p-3 text-lg focus:border-utama">
                     <option value="ml">Mobile Legends: Bang Bang</option>
                     <option value="ff">Free Fire</option>
                 </select>
             </div>
 
-            <!-- ISI ID & SERVER -->
             <div class="grid md:grid-cols-2 gap-4 mb-5">
-                <div>
-                    <label class="block font-medium mb-2">ID Akun</label>
-                    <input type="text" id="idAkun" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-utama" placeholder="Contoh: 12345678">
+                <div class="border-2 border-gray-300 rounded-lg p-1">
+                    <label class="block font-medium mb-1 px-2">ID Akun</label>
+                    <input type="text" id="idAkun" class="w-full p-2 text-lg rounded-b-lg focus:outline-none" placeholder="Contoh: 12345678">
                 </div>
-                <div>
-                    <label class="block font-medium mb-2">ID Server (Khusus ML)</label>
-                    <input type="text" id="idServer" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-utama" placeholder="Contoh: 1234">
+                <div class="border-2 border-gray-300 rounded-lg p-1">
+                    <label class="block font-medium mb-1 px-2">ID Server (ML)</label>
+                    <input type="text" id="idServer" class="w-full p-2 text-lg rounded-b-lg focus:outline-none" placeholder="Contoh: 1234">
                 </div>
             </div>
 
-            <!-- ✅ DAFTAR HARGA (BAGIAN INI YANG KAMU GANTI SENDIRI MUDAH BANGET) -->
-            <div class="mb-6">
+            <div class="mb-6 border-2 border-gray-300 rounded-lg p-3">
                 <label class="block font-medium mb-2">Pilih Jumlah Diamond & Harga</label>
-                <select id="hargaSelect" class="w-full border border-gray-300 rounded-lg p-3 text-lg">
+                <select id="hargaSelect" class="w-full text-lg">
                     <optgroup label="--- HARGA MOBILE LEGENDS ---" id="hargaML">
                         <option value="5|1500">💎 5 Diamond — Rp 1.500</option>
                         <option value="12|3000">💎 12 Diamond — Rp 3.000</option>
@@ -121,30 +125,30 @@
                 </select>
             </div>
 
-            <!-- TOMBOL PESAN WHATSAPP (SUDAH PAKAI NOMORMU: 6285119876723) -->
-            <button onclick="kirimWA()" class="w-full bg-green-600 text-white font-bold py-4 rounded-lg text-lg hover:bg-green-700 transition">
+            <button onclick="kirimWA()" class="w-full bg-green-600 text-white font-bold py-4 rounded-lg text-lg hover:bg-green-700 transition border-2 border-green-800">
                 <i class="fa fa-whatsapp"></i> PESAN SEKARANG LEWAT WA
             </button>
         </div>
 
+        <!-- INFO CS DENGAN BORDER -->
+        <div class="max-w-xl mx-auto mt-8 border-2 border-yellow-500 bg-yellow-50 rounded-lg p-4 text-center">
+            <p class="font-semibold text-yellow-800">📞 BUTUH BANTUAN? HUBUNGI CS:</p>
+            <p class="text-lg font-bold text-yellow-900">085656286654</p>
+        </div>
+
     </main>
 
-    <footer class="bg-gelap text-white py-5 mt-10">
+    <footer class="bg-gelap text-white py-5 mt-10 border-t-4 border-utama">
         <div class="container mx-auto px-4 text-center">
             <p>© 2026 Widi Store | Spesialis Top Up ML & FF</p>
         </div>
     </footer>
 
-    <!-- ✅ SKRIP UTAMA: PINDAH LANGSUNG KE TEMPAT ISI ID + PILIH OTOMATIS -->
     <script>
         function pilihGame(game) {
-            // 1. PINDAH LANGSUNG TEPAT KE FORM ISI ID
             document.getElementById('form-isi-id').scrollIntoView({behavior: 'smooth', block: 'start'});
-
-            // 2. PILIH GAME DI KOLOM PILIHAN
             document.getElementById('gameSelect').value = game;
 
-            // 3. GANTI DAFTAR HARGA SESUAI GAME
             if(game === 'ff'){
                 document.getElementById('hargaML').classList.add('hidden');
                 document.getElementById('hargaFF').classList.remove('hidden');
@@ -157,17 +161,13 @@
                 document.getElementById('idServer').disabled = false;
                 document.getElementById('idServer').placeholder = 'Contoh: 1234';
             }
-
-            // 4. LANGSUNG FOKUS KE KOLOM ISI ID BIAR LANGSUNG KETIK
             setTimeout(() => { document.getElementById('idAkun').focus(); }, 500);
         }
 
-        // UBAH HARGA OTOMATIS PAS GANTI GAME
         document.getElementById('gameSelect').addEventListener('change', function(){
             pilihGame(this.value);
         });
 
-        // FUNGSI KIRIM KE WHATSAPP
         function kirimWA(){
             let game = document.getElementById('gameSelect').value;
             let id = document.getElementById('idAkun').value;
@@ -178,7 +178,6 @@
 
             let teks = `Halo Widi Store%0ASaya Mau Top Up%0A%0AGame: ${game == 'ml' ? 'Mobile Legends' : 'Free Fire'}%0AID Akun: ${id}%0A${game == 'ml' ? 'ID Server: ' + server + '%0A' : ''}Jumlah: ${jumlah} Diamond%0AHarga: Rp ${harga}`;
             
-            // NOMOR WA KAMU: 6285119876723
             window.open(`https://wa.me/6285119876723?text=${teks}`, '_blank');
         }
     </script>
