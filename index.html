@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Widi Store - Top Up Game Termurah</title>
+    <title>Widi Store - Top Up ML & FF Termurah</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
@@ -12,6 +12,8 @@
                 extend: {
                     colors: {
                         utama: '#165DFF',
+                        ff: '#FF6B00',
+                        ml: '#0099FF',
                         gelap: '#1E293B'
                     },
                 }
@@ -20,124 +22,166 @@
     </script>
     <style type="text/tailwindcss">
         @layer utilities {
-            .content-auto {
-                content-visibility: auto;
-            }
+            .content-auto { content-visibility: auto; }
+            .scroll-smooth { scroll-behavior: smooth; }
+            .card-hover { @apply transition-all duration-300 hover:scale-[1.03] hover:shadow-xl cursor-pointer; }
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gelap">
+<body class="bg-gray-100 text-gelap scroll-smooth">
 
     <!-- HEADER -->
-    <header class="bg-utama text-white py-4 shadow-lg">
+    <header class="bg-utama text-white py-3 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
-                <h1 class="text-[22px] font-bold flex items-center gap-2">
+                <h1 class="text-[20px] font-bold flex items-center gap-2">
                     <i class="fa fa-gamepad"></i> WIDI STORE
                 </h1>
-                <span class="hidden md:inline">Top Up Game Resmi, Cepat & Murah</span>
+                <span class="text-sm hidden md:inline">Top Up Resmi ⚡ Cepat & Termurah</span>
             </div>
         </div>
     </header>
 
-    <!-- KONTEN UTAMA -->
     <main class="container mx-auto px-4 py-8">
 
         <!-- JUDUL -->
         <div class="text-center mb-10">
-            <h2 class="text-[28px] font-bold text-gelap mb-2">Layanan Top Up Game Terlengkap</h2>
-            <p class="text-gray-600">Proses Otomatis ⚡ 24 Jam Non Stop ✅ Aman & Terpercaya</p>
+            <h2 class="text-[28px] font-bold text-gelap mb-2">PILIH GAME KAMU</h2>
+            <p class="text-gray-600">Klik gambar game untuk mulai pesan</p>
         </div>
 
         <!-- DAFTAR GAME -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
 
-            <!-- ITEM GAME 1 -->
-            <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-4 cursor-pointer">
-                <img src="https://picsum.photos/id/96/200/200" alt="Mobile Legends" class="w-full h-32 object-cover rounded-lg mb-3">
-                <h3 class="font-bold text-center text-lg">Mobile Legends</h3>
-                <p class="text-center text-green-600 font-semibold">Diamond MLBB</p>
-                <a href="#beli" class="block w-full bg-utama text-white text-center py-2 rounded-lg mt-3 hover:bg-blue-700">Pesan Sekarang</a>
+            <!-- 🟦 MOBILE LEGENDS -->
+            <div class="bg-white rounded-xl shadow p-5 card-hover" onclick="pilihGame('ml')">
+                <img src="https://upload.wikimedia.org/wikipedia/id/thumb/6/68/Mobile_Legends:_Bang_Bang_logo.svg/1200px-Mobile_Legends:_Bang_Bang_logo.svg.png" 
+                     alt="Mobile Legends" class="w-full h-32 object-contain mb-3 p-2">
+                <h3 class="font-bold text-center text-xl text-ml">Mobile Legends</h3>
+                <p class="text-center text-green-600 font-semibold text-sm">Diamond Termurah</p>
+                <p class="text-center text-gray-600 text-xs mt-2">Beli Skin, Emote & Item Eksklusif</p>
             </div>
 
-            <!-- ITEM GAME 2 -->
-            <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-4 cursor-pointer">
-                <img src="https://picsum.photos/id/96/200/200" alt="Free Fire" class="w-full h-32 object-cover rounded-lg mb-3">
-                <h3 class="font-bold text-center text-lg">Free Fire</h3>
-                <p class="text-center text-green-600 font-semibold">Diamond FF</p>
-                <a href="#beli" class="block w-full bg-utama text-white text-center py-2 rounded-lg mt-3 hover:bg-blue-700">Pesan Sekarang</a>
-            </div>
-
-            <!-- ITEM GAME 3 -->
-            <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-4 cursor-pointer">
-                <img src="https://picsum.photos/id/96/200/200" alt="PUBG Mobile" class="w-full h-32 object-cover rounded-lg mb-3">
-                <h3 class="font-bold text-center text-lg">PUBG Mobile</h3>
-                <p class="text-center text-green-600 font-semibold">UC PUBG</p>
-                <a href="#beli" class="block w-full bg-utama text-white text-center py-2 rounded-lg mt-3 hover:bg-blue-700">Pesan Sekarang</a>
-            </div>
-
-            <!-- ITEM GAME 4 -->
-            <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-4 cursor-pointer">
-                <img src="https://picsum.photos/id/96/200/200" alt="Genshin Impact" class="w-full h-32 object-cover rounded-lg mb-3">
-                <h3 class="font-bold text-center text-lg">Genshin Impact</h3>
-                <p class="text-center text-green-600 font-semibold">Genesis Crystal</p>
-                <a href="#beli" class="block w-full bg-utama text-white text-center py-2 rounded-lg mt-3 hover:bg-blue-700">Pesan Sekarang</a>
+            <!-- 🟧 FREE FIRE -->
+            <div class="bg-white rounded-xl shadow p-5 card-hover" onclick="pilihGame('ff')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Free_Fire_logo.svg/1200px-Free_Fire_logo.svg.png" 
+                     alt="Free Fire" class="w-full h-32 object-contain mb-3 p-2">
+                <h3 class="font-bold text-center text-xl text-ff">Free Fire</h3>
+                <p class="text-center text-green-600 font-semibold text-sm">Diamond Termurah</p>
+                <p class="text-center text-gray-600 text-xs mt-2">Bundle, Senjata & Elite Pass</p>
             </div>
 
         </div>
 
-        <!-- FORM PEMESANAN -->
-        <div id="beli" class="bg-white rounded-xl shadow-lg p-5 md:p-8 mt-12 max-w-2xl mx-auto">
+        <!-- ✅ FORM ISI ID (LOKASI TUJUAN LANGSUNG PINDAH SINI) -->
+        <div id="form-isi-id" class="bg-white rounded-xl shadow-lg p-6 md:p-8 mt-12 max-w-xl mx-auto">
             <h3 class="text-[22px] font-bold text-center mb-6 text-utama">FORM PENGISIAN DATA</h3>
             
-            <div class="mb-4">
-                <label class="block font-medium mb-1">Pilih Game</label>
-                <select class="w-full border border-gray-300 rounded-lg p-3">
-                    <option>Mobile Legends: Bang Bang</option>
-                    <option>Free Fire</option>
-                    <option>PUBG Mobile</option>
-                    <option>Genshin Impact</option>
-                    <option>Honor Of Kings</option>
+            <!-- PILIH GAME (OTOMATIS TERISI KALAU KLIK GAMBAR) -->
+            <div class="mb-5">
+                <label class="block font-medium mb-2">Pilih Game</label>
+                <select id="gameSelect" class="w-full border border-gray-300 rounded-lg p-3 text-lg">
+                    <option value="ml">Mobile Legends: Bang Bang</option>
+                    <option value="ff">Free Fire</option>
                 </select>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <!-- ISI ID & SERVER -->
+            <div class="grid md:grid-cols-2 gap-4 mb-5">
                 <div>
-                    <label class="block font-medium mb-1">ID Pengguna</label>
-                    <input type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Contoh: 12345678">
+                    <label class="block font-medium mb-2">ID Akun</label>
+                    <input type="text" id="idAkun" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-utama" placeholder="Contoh: 12345678">
                 </div>
                 <div>
-                    <label class="block font-medium mb-1">ID Server (Jika Ada)</label>
-                    <input type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Contoh: 1234">
+                    <label class="block font-medium mb-2">ID Server (Khusus ML)</label>
+                    <input type="text" id="idServer" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-utama" placeholder="Contoh: 1234">
                 </div>
             </div>
 
+            <!-- ✅ DAFTAR HARGA (BAGIAN INI YANG KAMU GANTI SENDIRI MUDAH BANGET) -->
             <div class="mb-6">
-                <label class="block font-medium mb-1">Pilih Jumlah</label>
-                <select class="w-full border border-gray-300 rounded-lg p-3">
-                    <option>5 Diamond - Rp 1.500</option>
-                    <option>12 Diamond - Rp 3.000</option>
-                    <option>28 Diamond - Rp 7.000</option>
-                    <option>56 Diamond - Rp 14.000</option>
-                    <option>86 Diamond - Rp 21.000</option>
-                    <option>172 Diamond - Rp 42.000</option>
+                <label class="block font-medium mb-2">Pilih Jumlah Diamond & Harga</label>
+                <select id="hargaSelect" class="w-full border border-gray-300 rounded-lg p-3 text-lg">
+                    <optgroup label="--- HARGA MOBILE LEGENDS ---" id="hargaML">
+                        <option value="5|1500">💎 5 Diamond — Rp 1.500</option>
+                        <option value="12|3000">💎 12 Diamond — Rp 3.000</option>
+                        <option value="28|7000">💎 28 Diamond — Rp 7.000</option>
+                        <option value="56|14000">💎 56 Diamond — Rp 14.000</option>
+                        <option value="86|21000">💎 86 Diamond — Rp 21.000</option>
+                        <option value="172|42000">💎 172 Diamond — Rp 42.000</option>
+                    </optgroup>
+                    <optgroup label="--- HARGA FREE FIRE ---" id="hargaFF" class="hidden">
+                        <option value="5|1400">🔥 5 Diamond — Rp 1.400</option>
+                        <option value="10|2800">🔥 10 Diamond — Rp 2.800</option>
+                        <option value="25|6500">🔥 25 Diamond — Rp 6.500</option>
+                        <option value="50|13000">🔥 50 Diamond — Rp 13.000</option>
+                        <option value="100|26000">🔥 100 Diamond — Rp 26.000</option>
+                        <option value="140|35000">🔥 140 Diamond — Rp 35.000</option>
+                    </optgroup>
                 </select>
             </div>
 
-            <button class="w-full bg-green-600 text-white font-bold py-4 rounded-lg text-lg hover:bg-green-700">
-                <i class="fa fa-whatsapp"></i> Pesan Lewat WhatsApp
+            <!-- TOMBOL PESAN WHATSAPP (SUDAH PAKAI NOMORMU: 6285119876723) -->
+            <button onclick="kirimWA()" class="w-full bg-green-600 text-white font-bold py-4 rounded-lg text-lg hover:bg-green-700 transition">
+                <i class="fa fa-whatsapp"></i> PESAN SEKARANG LEWAT WA
             </button>
         </div>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-gelap text-white py-6 mt-10">
+    <footer class="bg-gelap text-white py-5 mt-10">
         <div class="container mx-auto px-4 text-center">
-            <p>© 2026 Widi Store | Top Up Game Resmi & Terpercaya Sejak 2024</p>
-            <p class="text-gray-400 text-sm mt-2">Layanan Pelanggan: 0812-3456-7890</p>
+            <p>© 2026 Widi Store | Spesialis Top Up ML & FF</p>
         </div>
     </footer>
+
+    <!-- ✅ SKRIP UTAMA: PINDAH LANGSUNG KE TEMPAT ISI ID + PILIH OTOMATIS -->
+    <script>
+        function pilihGame(game) {
+            // 1. PINDAH LANGSUNG TEPAT KE FORM ISI ID
+            document.getElementById('form-isi-id').scrollIntoView({behavior: 'smooth', block: 'start'});
+
+            // 2. PILIH GAME DI KOLOM PILIHAN
+            document.getElementById('gameSelect').value = game;
+
+            // 3. GANTI DAFTAR HARGA SESUAI GAME
+            if(game === 'ff'){
+                document.getElementById('hargaML').classList.add('hidden');
+                document.getElementById('hargaFF').classList.remove('hidden');
+                document.getElementById('idServer').value = '';
+                document.getElementById('idServer').disabled = true;
+                document.getElementById('idServer').placeholder = 'Tidak Perlu';
+            } else {
+                document.getElementById('hargaFF').classList.add('hidden');
+                document.getElementById('hargaML').classList.remove('hidden');
+                document.getElementById('idServer').disabled = false;
+                document.getElementById('idServer').placeholder = 'Contoh: 1234';
+            }
+
+            // 4. LANGSUNG FOKUS KE KOLOM ISI ID BIAR LANGSUNG KETIK
+            setTimeout(() => { document.getElementById('idAkun').focus(); }, 500);
+        }
+
+        // UBAH HARGA OTOMATIS PAS GANTI GAME
+        document.getElementById('gameSelect').addEventListener('change', function(){
+            pilihGame(this.value);
+        });
+
+        // FUNGSI KIRIM KE WHATSAPP
+        function kirimWA(){
+            let game = document.getElementById('gameSelect').value;
+            let id = document.getElementById('idAkun').value;
+            let server = document.getElementById('idServer').value;
+            let pilihan = document.getElementById('hargaSelect').value.split('|');
+            let jumlah = pilihan[0];
+            let harga = pilihan[1];
+
+            let teks = `Halo Widi Store%0ASaya Mau Top Up%0A%0AGame: ${game == 'ml' ? 'Mobile Legends' : 'Free Fire'}%0AID Akun: ${id}%0A${game == 'ml' ? 'ID Server: ' + server + '%0A' : ''}Jumlah: ${jumlah} Diamond%0AHarga: Rp ${harga}`;
+            
+            // NOMOR WA KAMU: 6285119876723
+            window.open(`https://wa.me/6285119876723?text=${teks}`, '_blank');
+        }
+    </script>
 
 </body>
 </html>
