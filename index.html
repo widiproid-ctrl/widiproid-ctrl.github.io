@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widi Store - Top Up Game Termurah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        utama: '#165DFF',
+                        gelap: '#1E293B'
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gelap">
+
+    <!-- HEADER -->
+    <header class="bg-utama text-white py-4 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-[22px] font-bold flex items-center gap-2">
+                    <i class="fa fa-gamepad"></i> WIDI STORE
+                </h1>
+                <span class="hidden md:inline">Top Up Game Resmi, Cepat & Murah</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- JUDUL -->
+        <div class="text-center mb-10">
+            <h2 class="text-[28px] font-bold text-gelap mb-2">Layanan Top Up Game Terlengkap</h2>
+            <p class="text-gray-600">Proses Otomatis ⚡ 24 Jam Non Stop ✅ Aman & Terpercaya</p>
+        </div>
+
+        <!-- DAFTAR GAME -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+
+            <!-- ITEM GAME 1 -->
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-4 cursor-pointer">
+                <img src="https://picsum.photos/id/96/200/200" alt="Mobile Legends" class="w-full h-32 object-cover rounded-lg mb-3">
+                <h3 class="font-bold text-center text-lg">Mobile Legends</h3>
+                <p class="text-center text-green-600 font-semibold">Diamond MLBB</p>
+                <a href="#beli" class="block w-full bg-utama text-white text-center py-2 rounded-lg mt-3 hover:bg-blue-700">Pesan Sekarang</a>
+            </div>
+
+            <!-- ITEM GAME 2 -->
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-4 cursor-pointer">
+                <img src="https://picsum.photos/id/96/200/200" alt="Free Fire" class="w-full h-32 object-cover rounded-lg mb-3">
+                <h3 class="font-bold text-center text-lg">Free Fire</h3>
+                <p class="text-center text-green-600 font-semibold">Diamond FF</p>
+                <a href="#beli" class="block w-full bg-utama text-white text-center py-2 rounded-lg mt-3 hover:bg-blue-700">Pesan Sekarang</a>
+            </div>
+
+            <!-- ITEM GAME 3 -->
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-4 cursor-pointer">
+                <img src="https://picsum.photos/id/96/200/200" alt="PUBG Mobile" class="w-full h-32 object-cover rounded-lg mb-3">
+                <h3 class="font-bold text-center text-lg">PUBG Mobile</h3>
+                <p class="text-center text-green-600 font-semibold">UC PUBG</p>
+                <a href="#beli" class="block w-full bg-utama text-white text-center py-2 rounded-lg mt-3 hover:bg-blue-700">Pesan Sekarang</a>
+            </div>
+
+            <!-- ITEM GAME 4 -->
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-4 cursor-pointer">
+                <img src="https://picsum.photos/id/96/200/200" alt="Genshin Impact" class="w-full h-32 object-cover rounded-lg mb-3">
+                <h3 class="font-bold text-center text-lg">Genshin Impact</h3>
+                <p class="text-center text-green-600 font-semibold">Genesis Crystal</p>
+                <a href="#beli" class="block w-full bg-utama text-white text-center py-2 rounded-lg mt-3 hover:bg-blue-700">Pesan Sekarang</a>
+            </div>
+
+        </div>
+
+        <!-- FORM PEMESANAN -->
+        <div id="beli" class="bg-white rounded-xl shadow-lg p-5 md:p-8 mt-12 max-w-2xl mx-auto">
+            <h3 class="text-[22px] font-bold text-center mb-6 text-utama">FORM PENGISIAN DATA</h3>
+            
+            <div class="mb-4">
+                <label class="block font-medium mb-1">Pilih Game</label>
+                <select class="w-full border border-gray-300 rounded-lg p-3">
+                    <option>Mobile Legends: Bang Bang</option>
+                    <option>Free Fire</option>
+                    <option>PUBG Mobile</option>
+                    <option>Genshin Impact</option>
+                    <option>Honor Of Kings</option>
+                </select>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block font-medium mb-1">ID Pengguna</label>
+                    <input type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Contoh: 12345678">
+                </div>
+                <div>
+                    <label class="block font-medium mb-1">ID Server (Jika Ada)</label>
+                    <input type="text" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Contoh: 1234">
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label class="block font-medium mb-1">Pilih Jumlah</label>
+                <select class="w-full border border-gray-300 rounded-lg p-3">
+                    <option>5 Diamond - Rp 1.500</option>
+                    <option>12 Diamond - Rp 3.000</option>
+                    <option>28 Diamond - Rp 7.000</option>
+                    <option>56 Diamond - Rp 14.000</option>
+                    <option>86 Diamond - Rp 21.000</option>
+                    <option>172 Diamond - Rp 42.000</option>
+                </select>
+            </div>
+
+            <button class="w-full bg-green-600 text-white font-bold py-4 rounded-lg text-lg hover:bg-green-700">
+                <i class="fa fa-whatsapp"></i> Pesan Lewat WhatsApp
+            </button>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gelap text-white py-6 mt-10">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2026 Widi Store | Top Up Game Resmi & Terpercaya Sejak 2024</p>
+            <p class="text-gray-400 text-sm mt-2">Layanan Pelanggan: 0812-3456-7890</p>
+        </div>
+    </footer>
+
+</body>
+</html>
